@@ -24,6 +24,13 @@ function getComputerChoice() {
         choice = +randNum.charAt(i);
         i++;
     }
+    if (choice >=1 && choice <=3) {
+        choice = "I choose ROCK!";
+    } else if (choice >=4 && choice <=6) {
+        choice = "I choose PAPER!";
+    } else {
+        choice = "I choose SCISSORS!";
+    }
     return choice;
 }
 

@@ -1,37 +1,90 @@
-console.log("Hello, World!");
-
-// Generate random number to simulate cpu choice
-// Maybe take the first number in stroing that is not
-// a 0 instead of rerolling until * 10 is not 0?
-// function getComputerChoice() {
-//     let randNum = String(Math.random());
-//     choice = +randNum.charAt(2);
-//     if (choice === 0) {
-//         console.log("got to if");
-//         getComputerChoice();
-//     } else {
-//     return choice;
-//     }
-// }
-
+console.log("Welcome to the Rock, Paper, Scissors ARENA!\n" +
+    "Here you will test your wits against the greatest " +
+    "lighning-infused rocks of our generation.\n" +
+    "DO YOU HAVE WHAT IT TAKES TO BEST *ME* - THE LIBRARIAN?!");
 
 function getComputerChoice() {
     const randNum = String(Math.random());
     let choice = 0;
     let i = 2;
     while (choice == 0 ?? i < randNum.length) {
-        console.log(+randNum.charAt(i));
         choice = +randNum.charAt(i);
         i++;
     }
     if (choice >=1 && choice <=3) {
-        choice = "I choose ROCK!";
+        choice = "ROCK";
     } else if (choice >=4 && choice <=6) {
-        choice = "I choose PAPER!";
+        choice = "PAPER";
     } else {
-        choice = "I choose SCISSORS!";
+        choice = "SCISSORS";
     }
     return choice;
 }
 
-console.log(getComputerChoice());
+function getHumanChoice() {
+    let hChoice = prompt("Type 1 for ROCK, 2 for PAPER"+
+        " or 3 for SCISSORS.", 1);
+    if (hChoice == 1) {
+        console.log("You've chosen ROCK!");
+    } else if (hChoice == 2) {
+        console.log("You've chosen PAPER!");
+    } else {
+        console.log("You've chosen SCISSORS!");
+    }
+    return hChoice;
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(){
+    hChoice = getHumanChoice();
+    choice = getComputerChoice();
+    console.log(`I choose ${choice}!`);
+    if (hChoice == 1) {
+        switch (hChoice == 1) {
+            case choice == "ROCK":
+                console.log("We both chose ROCK. No points.");
+                break;
+            case choice == "PAPER":
+                console.log("PAPER beats ROCK! Point for me!");
+                break;
+            case choice == "SCISSORS":
+                console.log("ROCK beats SCISSORS. Point for you.");
+                break;          
+        }
+    } else if (hChoice == 2) {
+        switch (hChoice == 2) {
+            case choice == "ROCK":
+                console.log("PAPER beats ROCK. Point for you.");
+                break;
+            case choice == "PAPER":
+                console.log("We both chose PAPER. No points.");
+                break;
+            case choice == "SCISSORS":
+                console.log("SCISSORS beat PAPER! Point for me!");
+                break;          
+        }
+    } else {
+        switch (hChoice == 3) {
+            case choice == "ROCK":
+                console.log("ROCK beats SCISSORS. Point for me!");
+                break;
+            case choice == "PAPER":
+                console.log("SCISSORS beat PAPER. Point for you.");
+                break;
+            case choice == "SCISSORS":
+                console.log("We both chose SCISSORS. No points.");
+                break;          
+        }
+    }
+
+
+
+}
+
+playRound();
+
+
+
+

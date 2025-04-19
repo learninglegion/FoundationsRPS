@@ -24,7 +24,12 @@ function getComputerChoice() {
 function getHumanChoice() {
     let hChoice = prompt("Type 1 for ROCK, 2 for PAPER"+
         " or 3 for SCISSORS.", 1);
-    if (hChoice == 1) {
+
+// Assignment calls for typing the choice and making the input case-
+// insensitive. So here is the code if I wanted that:
+// let hChoice = prompt("Type 'rock', 'paper', or 'scissors' to choose.").toLowerCase();
+
+if (hChoice == 1) {
         console.log("You've chosen ROCK!");
     } else if (hChoice == 2) {
         console.log("You've chosen PAPER!");

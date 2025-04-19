@@ -53,30 +53,36 @@ function playRound(){
                 break;
             case choice == "PAPER":
                 console.log("PAPER beats ROCK! Point for me!");
+                computerScore++;
                 break;
             case choice == "SCISSORS":
                 console.log("ROCK beats SCISSORS. Point for you.");
+                humanScore++;
                 break;          
         }
     } else if (hChoice == 2) {
         switch (hChoice == 2) {
             case choice == "ROCK":
                 console.log("PAPER beats ROCK. Point for you.");
+                humanScore++;
                 break;
             case choice == "PAPER":
                 console.log("We both chose PAPER. No points.");
                 break;
             case choice == "SCISSORS":
                 console.log("SCISSORS beat PAPER! Point for me!");
+                computerScore++;
                 break;          
         }
     } else {
         switch (hChoice == 3) {
             case choice == "ROCK":
                 console.log("ROCK beats SCISSORS. Point for me!");
+                computerScore++;
                 break;
             case choice == "PAPER":
                 console.log("SCISSORS beat PAPER. Point for you.");
+                humanScore++;
                 break;
             case choice == "SCISSORS":
                 console.log("We both chose SCISSORS. No points.");

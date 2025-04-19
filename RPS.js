@@ -22,29 +22,25 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let humanChoice = prompt("Type 1 for ROCK, 2 for PAPER"+
-        " or 3 for SCISSORS.", 1);
-
 // Assignment calls for typing the choice and making the input case-
 // insensitive. So here is the code if I wanted that:
 // let humanChoice = prompt("Type 'rock', 'paper', or 'scissors' to choose.").toLowerCase();
 
-if (humanChoice == 1) {
-        console.log("You've chosen ROCK!");
-    } else if (humanChoice == 2) {
-        console.log("You've chosen PAPER!");
-    } else {
-        console.log("You've chosen SCISSORS!");
+    let humanChoice = prompt("Type 1 for ROCK, 2 for PAPER"+
+        " or 3 for SCISSORS.", 1);
+    if (humanChoice == 1) {
+            // console.log("You've chosen ROCK!");
+        } else if (humanChoice == 2) {
+            // console.log("You've chosen PAPER!");
+        } else {
+            // console.log("You've chosen SCISSORS!");
+        }
+        return humanChoice;
     }
-    return humanChoice;
-}
-
-
 
 function playRound(humanChoice, computerChoice) {
-    console.log(`I choose ${computerChoice}!`);
-    humanScore = 0
-    computerScore = 0
+    // console.log(`I choose ${computerChoice}!`);
+    console.log(`One, two, three... ${computerChoice} `);
     if (humanChoice == 1) {
         switch (humanChoice == 1) {
             case computerChoice == "ROCK":
@@ -88,38 +84,32 @@ function playRound(humanChoice, computerChoice) {
                 break;          
         }
     }
-    if (humanScore > computerScore) {
-        return 'human';
-    } else {
-        return 'computer';
-    }
+    console.log(`Human:${humanScore} Me:${computerScore}`);
 }
 
-//playRound(humanSelection, computerSelection);
+let humanScore = 0;
+let computerScore = 0;
 
 function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+    // let humanScore = 0;
+    // let computerScore = 0;
     let i = 0
+    console.log("Let's play. How about best of five?")
     while (i < 5) {
-        roundWinner = playRound (humanSelection, computerSelection);
-        if (roundWinner == 'human') {
-            humanScore++
-        } else {
-            computerScore++
-        }
+        console.log(`--= ROUND ${i + 1} =--`)
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection,computerSelection);
         i++;
     }
-    console.log(`The score is ${humanScore} to ${computerScore}.`);
+    if (humanScore > computerScore) {
+        console.log("Humans are so lucky. You win.");
+    } else if (humanScore < computerScore) {
+        console.log("A loss to the superior entity is still humiliating. I win!");        
+    } else {
+        console.log("We are equally matched. Perhaps you are worthy.")
+    }
+    console.log("--= GAME OVER =--")
 }
 
-
-
 playGame();
-
-
-
-
-

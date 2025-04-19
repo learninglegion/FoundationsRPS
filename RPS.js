@@ -22,79 +22,103 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let hChoice = prompt("Type 1 for ROCK, 2 for PAPER"+
+    let humanChoice = prompt("Type 1 for ROCK, 2 for PAPER"+
         " or 3 for SCISSORS.", 1);
 
 // Assignment calls for typing the choice and making the input case-
 // insensitive. So here is the code if I wanted that:
-// let hChoice = prompt("Type 'rock', 'paper', or 'scissors' to choose.").toLowerCase();
+// let humanChoice = prompt("Type 'rock', 'paper', or 'scissors' to choose.").toLowerCase();
 
-if (hChoice == 1) {
+if (humanChoice == 1) {
         console.log("You've chosen ROCK!");
-    } else if (hChoice == 2) {
+    } else if (humanChoice == 2) {
         console.log("You've chosen PAPER!");
     } else {
         console.log("You've chosen SCISSORS!");
     }
-    return hChoice;
+    return humanChoice;
 }
 
-let humanScore = 0;
-let computerScore = 0;
 
-function playRound(){
-    hChoice = getHumanChoice();
-    choice = getComputerChoice();
-    console.log(`I choose ${choice}!`);
-    if (hChoice == 1) {
-        switch (hChoice == 1) {
-            case choice == "ROCK":
+
+function playRound(humanChoice, computerChoice) {
+    console.log(`I choose ${computerChoice}!`);
+    humanScore = 0
+    computerScore = 0
+    if (humanChoice == 1) {
+        switch (humanChoice == 1) {
+            case computerChoice == "ROCK":
                 console.log("We both chose ROCK. No points.");
                 break;
-            case choice == "PAPER":
+            case computerChoice == "PAPER":
                 console.log("PAPER beats ROCK! Point for me!");
                 computerScore++;
                 break;
-            case choice == "SCISSORS":
+            case computerChoice == "SCISSORS":
                 console.log("ROCK beats SCISSORS. Point for you.");
                 humanScore++;
                 break;          
         }
-    } else if (hChoice == 2) {
-        switch (hChoice == 2) {
-            case choice == "ROCK":
+    } else if (humanChoice == 2) {
+        switch (humanChoice == 2) {
+            case computerChoice == "ROCK":
                 console.log("PAPER beats ROCK. Point for you.");
                 humanScore++;
                 break;
-            case choice == "PAPER":
+            case computerChoice == "PAPER":
                 console.log("We both chose PAPER. No points.");
                 break;
-            case choice == "SCISSORS":
+            case computerChoice == "SCISSORS":
                 console.log("SCISSORS beat PAPER! Point for me!");
                 computerScore++;
                 break;          
         }
     } else {
-        switch (hChoice == 3) {
-            case choice == "ROCK":
+        switch (humanChoice == 3) {
+            case computerChoice == "ROCK":
                 console.log("ROCK beats SCISSORS. Point for me!");
                 computerScore++;
                 break;
-            case choice == "PAPER":
+            case computerChoice == "PAPER":
                 console.log("SCISSORS beat PAPER. Point for you.");
                 humanScore++;
                 break;
-            case choice == "SCISSORS":
+            case computerChoice == "SCISSORS":
                 console.log("We both chose SCISSORS. No points.");
                 break;          
         }
     }
-
-
-
+    if (humanScore > computerScore) {
+        return 'human';
+    } else {
+        return 'computer';
+    }
 }
 
-playRound();
+//playRound(humanSelection, computerSelection);
+
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    let i = 0
+    while (i < 5) {
+        roundWinner = playRound (humanSelection, computerSelection);
+        if (roundWinner == 'human') {
+            humanScore++
+        } else {
+            computerScore++
+        }
+        i++;
+    }
+    console.log(`The score is ${humanScore} to ${computerScore}.`);
+}
+
+
+
+playGame();
+
 
 
 
